@@ -25,6 +25,7 @@ ScreenLocker::ScreenLocker(QWidget *parent) :
     timeUntilLabel->setStyleSheet("font-size: 50px;"
                              "color:#AAAAAA;");
 
+    timeUntil=QDateTime::currentDateTime();
     updateTimeUntil();
     startTimer(1000);
 
@@ -55,7 +56,7 @@ void ScreenLocker::timerEvent(QTimerEvent *e)
 
 void ScreenLocker::updateTimeUntil()
 {
-    TimeDialog dialog(this);
+    TimeDialog dialog(timeUntil,this);
 
     if(dialog.exec() == QDialog::Accepted){
         timeUntil = dialog.edit->dateTime();

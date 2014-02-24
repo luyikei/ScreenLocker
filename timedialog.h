@@ -8,7 +8,7 @@ class TimeDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit TimeDialog(QWidget *parent = 0);
+    explicit TimeDialog(QDateTime timeUntil,QWidget *parent = 0);
     QDateTimeEdit *edit;
 signals:
 

@@ -3,7 +3,7 @@
 #include <QDateTime>
 #include <QDialogButtonBox>
 
-TimeDialog::TimeDialog(QWidget *parent) :
+TimeDialog::TimeDialog(QDateTime timeUntil ,QWidget *parent) :
     QDialog(parent)
 {
     QHBoxLayout* layout = new QHBoxLayout(this);
@@ -15,7 +15,7 @@ TimeDialog::TimeDialog(QWidget *parent) :
     connect(buttonBox,SIGNAL(accepted()),this,SLOT(accept()));
     connect(buttonBox,SIGNAL(rejected()),this,SLOT(reject()));
 
-    edit->setDateTime(QDateTime::currentDateTime());
+    edit->setDateTime(timeUntil);
 
     layout->addWidget(edit);
     layout->addWidget(buttonBox);
