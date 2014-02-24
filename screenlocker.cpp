@@ -47,7 +47,7 @@ void ScreenLocker::mousePressEvent(QMouseEvent *e)
 void ScreenLocker::timerEvent(QTimerEvent *e)
 {
     timeNowLabel->setText(QDateTime::currentDateTime().toString(QString::fromUtf8("yyyy M月 d日 h:mm ss")));
-    if(QDateTime::currentDateTime().secsTo(timeUntil) == 0){
+    if(QDateTime::currentDateTime().secsTo(timeUntil) <= 1){
 
         close();
 
