@@ -3,6 +3,11 @@
 
 #include <QDialog>
 #include <QDateTimeEdit>
+#include <QHBoxLayout>
+#include <QDateTime>
+#include <QDialogButtonBox>
+#include <QCheckBox>
+
 class TimeDialog : public QDialog
 {
     Q_OBJECT
@@ -10,6 +15,9 @@ class TimeDialog : public QDialog
 public:
     explicit TimeDialog(QDateTime timeUntil,QWidget *parent = 0);
     QDateTimeEdit *edit;
+    QHBoxLayout *layout;
+    QDialogButtonBox *buttonBox;
+    QCheckBox *isToRemoveUSB;
 signals:
 
 public slots:

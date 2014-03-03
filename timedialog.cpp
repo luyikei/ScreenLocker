@@ -1,17 +1,14 @@
 #include "timedialog.h"
-#include <QHBoxLayout>
-#include <QDateTime>
-#include <QDialogButtonBox>
 
 TimeDialog::TimeDialog(QDateTime timeUntil ,QWidget *parent) :
     QDialog(parent)
 {
-    QHBoxLayout* layout = new QHBoxLayout(this);
+    layout = new QHBoxLayout(this);
     edit = new QDateTimeEdit(this);
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
+    buttonBox = new QDialogButtonBox(this);
     buttonBox->addButton(QDialogButtonBox::Ok);
     buttonBox->addButton(QDialogButtonBox::Cancel);
-
+    isToRemoveUSB = new QCheckBox("Remove USB (WARNING : Experimental! Only Linux)");
     connect(buttonBox,SIGNAL(accepted()),this,SLOT(accept()));
     connect(buttonBox,SIGNAL(rejected()),this,SLOT(reject()));
 
@@ -19,4 +16,6 @@ TimeDialog::TimeDialog(QDateTime timeUntil ,QWidget *parent) :
 
     layout->addWidget(edit);
     layout->addWidget(buttonBox);
+    layout->addWidget(isToRemoveUSB);
+
 }

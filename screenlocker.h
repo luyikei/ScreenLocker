@@ -5,6 +5,8 @@
 
 #include <QDateTime>
 #include <QLabel>
+#include <QVBoxLayout>
+#include <QStringList>
 namespace Ui {
 class ScreenLocker;
 }
@@ -20,12 +22,22 @@ public:
     void mousePressEvent(QMouseEvent *e);
     void timerEvent(QTimerEvent *e);
     void updateTimeUntil();
+    void closeEvent(QCloseEvent *e);
+
+    void removeUsb(const QStringList& l);
+    void recongnizeUsb(const QStringList& l);
+
+    QStringList scanUsbDevices();
 
 
     QDateTime timeUntil;
 private:
     QLabel *timeNowLabel;
     QLabel *timeUntilLabel;
+
+    QVBoxLayout *layout;
+
+    QStringList removeUsbList;
 };
 
 #endif // SCREENLOCKER_H
